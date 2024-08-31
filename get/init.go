@@ -14,16 +14,28 @@ func Init(t *pb.Request) (response *pb.Response) {
 	switch *t.Param {
 	case "country":
 		response = GetCountries(t)
+	case "getcountrybyid":
+		response = GetCountryByID(t)
 	case "phone_codes":
 		response = GetPhoneCodes(t)
+	case "getcountrybyphone":
+		response = GetCountryByPhoneCode(t)
 	case "currency":
 		response = GetCurrencies(t)
+	case "getcountrybycurrency":
+		response = GetCountryByCurrency(t)
 	case "cities":
 		response = GetCities(t)
+	case "getcitybyid":
+		response = GetCityByID(t)
 	case "states":
 		response = GetStates(t)
+	case "getstatebyid":
+		response = GetStateByID(t)
 	case "categories":
 		response = GetCategories(t)
+	case "getvaluebyid":
+		response = GetValueByID(t)
 	default:
 		response = CheckCategoryID(t)
 	}

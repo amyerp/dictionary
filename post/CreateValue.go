@@ -64,6 +64,10 @@ func CreateValue(t *pb.Request) (response *pb.Response) {
 
 	lowerStr := strings.ToLower(p.Sanitize(fmt.Sprintf("%v", args["name"])))
 	dataid := strings.ReplaceAll(lowerStr, " ", "_")
+	if curdata.FilteredBy != "" && args["filter_value"] != nil {
+		fv := strings.ToLower(p.Sanitize(fmt.Sprintf("%v", args["filter_value"])))
+		dataid = fmt.Sprintf("%s_%s", dataid, fv)
+	}
 	data.UUID = dataid
 
 	err = db.Conn.Create(&data).Error
