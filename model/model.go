@@ -51,7 +51,7 @@ type DictionaryCategories struct {
 type DictionaryValue struct {
 	gorm.Model
 	UUID        string  `gorm:"column:uuid;type:varchar(254);DEFAULT '';" json:"uuid"`
-	CategoryID  string  `gorm:"column:catrgoryid;type:varchar(254);DEFAULT '';" json:"categoryid"`
+	CategoryID  string  `gorm:"column:categoryid;type:varchar(254);DEFAULT '';" json:"categoryid"`
 	Value       float64 `gorm:"column:value;type:float;DEFAULT '';" json:"value"` //for example id or vat amount
 	Name        string  `gorm:"column:name;type:varchar(254);DEFAULT '';" json:"name"`
 	ShortName   string  `gorm:"column:short_name;type:varchar(254);DEFAULT '';" json:"short_name"`

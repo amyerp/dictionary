@@ -71,11 +71,11 @@ func GetValuesByCategory(t *pb.Request) (response *pb.Response) {
 
 	var count int64
 	if filter != "" {
-		db.Conn.Debug().Model(data).Where("catrgoryid = ? AND (filter_value = ? OR filter_value = ?)", catid, filter, "all").Count(&count)
-		db.Conn.Debug().Where("catrgoryid = ?  AND (filter_value = ? OR filter_value = ?)", catid, filter, "all").Limit(limit).Offset(offset).Find(&data)
+		db.Conn.Debug().Model(data).Where("categoryid = ? AND (filter_value = ? OR filter_value = ?)", catid, filter, "all").Count(&count)
+		db.Conn.Debug().Where("categoryid = ?  AND (filter_value = ? OR filter_value = ?)", catid, filter, "all").Limit(limit).Offset(offset).Find(&data)
 	} else {
-		db.Conn.Debug().Model(data).Where("catrgoryid = ?", catid).Count(&count)
-		db.Conn.Debug().Where("catrgoryid = ?", catid).Limit(limit).Offset(offset).Find(&data)
+		db.Conn.Debug().Model(data).Where("categoryid = ?", catid).Count(&count)
+		db.Conn.Debug().Where("categoryid = ?", catid).Limit(limit).Offset(offset).Find(&data)
 	}
 
 	ans["dictionary"] = data

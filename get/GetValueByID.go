@@ -36,11 +36,6 @@ func GetValueByID(t *pb.Request) (response *pb.Response) {
 
 	if args["categoryid"] != nil {
 		categoryid = p.Sanitize(fmt.Sprintf("%v", args["categoryid"]))
-	} else {
-		//	return ErrorReturn(t, 406, "000012", "Missing  Category ID")
-		//We should have GetValuesByCategory
-		categoryid = *t.Param
-
 	}
 
 	//Show addresses
